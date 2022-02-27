@@ -7,6 +7,17 @@ table, th, td {
 <center>
 <h1><%= @merchant.name.titleize %></h1>
 <p> <%= link_to 'Create New Item', "/merchants/#{@merchant.id}/items/new" %> </p>
+
+<div class = "top_five_items" >
+  <% @merchant.top_five_items.each do |item| %>
+    <p> <b>Item:</b> <%= link_to "#{item.name.titleize}", "/merchants/#{@merchant.id}/items/#{item.id}" %>
+      <b>Total Sales:</b> <%= item.total_sales %></p>
+  <% end %>
+
+</div>
+
+
+
 <table style="width:100%">
   <tr>
     <td>Enabled Items</td>

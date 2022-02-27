@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Merchant do
   describe 'relations' do
-    it {should have_many(:items)}
-    it {should have_many(:invoice_items).through(:items)}
-    it {should have_many(:invoices).through(:invoice_items)}
-    it {should have_many(:customers).through(:invoices)}
+    it { should have_many(:items) }
+    it { should have_many(:invoice_items).through(:items) }
+    it { should have_many(:invoices).through(:invoice_items) }
+    it { should have_many(:customers).through(:invoices) }
   end
 
   describe 'class methods' do
@@ -15,7 +15,7 @@ RSpec.describe Merchant do
       @merchant_3 = Merchant.create!(name: 'Happy Crafts', status: 1)
       @merchant_4 = Merchant.create!(name: 'Not-So-Happy Crafts')
 
-      visit "/admin/merchants"
+      visit '/admin/merchants'
     end
 
     it 'returns all merchants with a status of disabled' do
