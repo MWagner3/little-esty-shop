@@ -11,7 +11,14 @@ table, th, td {
 <div class = "top_five_items" >
   <% @merchant.top_five_items.each do |item| %>
     <p> <b>Item:</b> <%= link_to "#{item.name.titleize}", "/merchants/#{@merchant.id}/items/#{item.id}" %>
-      <b>Total Sales:</b> <%= item.total_sales %></p>
+      <b>Total Sales:</b> <%= item.total_sales %>
+      <b>Top Sales Date:</b> <% if item.highest_revenue == nil %>
+                         <%= "No Sales Data" %>
+                       <% else %>
+                         <%= item.highest_revenue.creation_date_formatted %>
+                       <% end %>
+    </p>
+
   <% end %>
 
 </div>
