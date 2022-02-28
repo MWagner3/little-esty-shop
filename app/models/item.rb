@@ -24,5 +24,13 @@ class Item < ApplicationRecord
   def self.disabled_items
     where(status: 1)
   end
-  
+
+  def highest_revenue
+    invoices.joins(:invoice_items)
+            .where(invoices: { status: 1 })
+            .select('invoices.*, SUM(invoice_items.quantity * invoice_items.unit_price) AS total_revenue')
+            .group(:id)
+            .order(total_revenue: :desc)
+            .first
+  end
 end
