@@ -3,3 +3,14 @@
 <p>Status: <%= @invoice.status %></p>
 <p>Created On: <%= @invoice.creation_date_formatted %></p>
 <p>Customer Name: <%= @customer.first_name %> <%= @customer.last_name %></p>
+
+<h2>Invoice Items:</h2>
+
+<% @invoice.invoice_items.each do |invoice_item| %>
+  <div id="invoice_item-<%= invoice_item.id %>">
+    <h3><u><%= invoice_item.item.name %></u></h3>
+    <p>Quantity: <%= invoice_item.quantity %></p>
+    <p>Price: <%= invoice_item.unit_price.to_f/100 %></p>
+    <p>Status: <%= invoice_item.status %></p>
+    <% end %>
+  </div>

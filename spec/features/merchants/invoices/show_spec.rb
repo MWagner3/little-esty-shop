@@ -34,13 +34,12 @@ RSpec.describe 'Merchant Invoices show page' do
 
   it "I see name, quantity, price and status of each item on the invoice" do
     within "#invoice_item-#{@invoice_item_1.id}" do
-          expect(page).to have_content(@invoice_item_1.item.name)
-          expect(page).to have_content(@invoice_item_1.quantity)
-          expect(page).to have_content(@invoice_item_1.unit_price)
-          expect(page).to have_content(@invoice_item_1.status)
-          expect(page).to_not have_content(@invoice_item_2.item.name)
-        end
-      end
+      save_and_open_page
+      expect(page).to have_content(@invoice_item_1.item.name)
+      expect(page).to have_content(@invoice_item_1.quantity)
+      expect(page).to have_content(@invoice_item_1.unit_price/100)
+      expect(page).to have_content(@invoice_item_1.status)
+      expect(page).to_not have_content(@invoice_item_2.item.name)
+    end
   end
-
 end
