@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe 'Merchant Invoices Index' do
+RSpec.describe 'Merchant Invoices show page' do
   before :each do
     @merchant_1 = Merchant.create!(name: 'Primate Privleges')
 
@@ -30,6 +30,17 @@ RSpec.describe 'Merchant Invoices Index' do
 
   it "I see customer's first and last name" do
     expect(page).to have_content("Customer Name: #{@customer_1.first_name} #{@customer_1.last_name}")
+  end
+
+  it "I see name, quantity, price and status of each item on the invoice" do
+    within "#invoice_item-#{@invoice_item_1.id}" do
+          expect(page).to have_content(@invoice_item_1.item.name)
+          expect(page).to have_content(@invoice_item_1.quantity)
+          expect(page).to have_content(@invoice_item_1.unit_price)
+          expect(page).to have_content(@invoice_item_1.status)
+          expect(page).to_not have_content(@invoice_item_2.item.name)
+        end
+      end
   end
 
 end
