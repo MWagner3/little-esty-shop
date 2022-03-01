@@ -2,7 +2,7 @@
 
 <p>Status: <%= @invoice.status %></p>
 <p>Created On: <%= @invoice.creation_date_formatted %></p>
-<p>Customer Name: <%= @customer.first_name %> <%= @customer.last_name %></p>
+<p>Customer Name: <%= @invoice.customer.first_name %> <%= @invoice.customer.last_name %></p>
 
 <h2>Invoice Items:</h2>
 

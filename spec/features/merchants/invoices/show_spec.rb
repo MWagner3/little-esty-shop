@@ -23,7 +23,6 @@ RSpec.describe 'Merchant Invoices show page' do
   it "I see invoice's id, status and created_at date" do
     expect(page).to have_content("Invoice Number: #{@invoice_1.id}")
     expect(page).to_not have_content("Invoice Number: #{@invoice_2.id}")
-
     expect(page).to have_content("Status: #{@invoice_1.status}")
     expect(page).to have_content("Created On: #{@invoice_1.creation_date_formatted}")
   end
@@ -34,7 +33,6 @@ RSpec.describe 'Merchant Invoices show page' do
 
   it "I see name, quantity, price and status of each item on the invoice" do
     within "#invoice_item-#{@invoice_item_1.id}" do
-      save_and_open_page
       expect(page).to have_content(@invoice_item_1.item.name)
       expect(page).to have_content(@invoice_item_1.quantity)
       expect(page).to have_content(@invoice_item_1.unit_price/100)
