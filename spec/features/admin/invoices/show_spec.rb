@@ -7,7 +7,7 @@ RSpec.describe 'Admin Invoices Show' do
       @customer_2 = Customer.create!(first_name: "Baron", last_name: "Harkonnen")
       @customer_3 = Customer.create!(first_name: "Reverend", last_name: "Mother")
 
-      @invoice_1 = @customer_1.invoices.create!(created_at: '2012-03-25 09:54:09')
+      @invoice_1 = @customer_1.invoices.create!(created_at: '2012-03-25 09:54:09', status: 1)
 
       @merchant_1 = Merchant.create!(name: "LT's Tee Shirts LLC", status: 0)
 
@@ -76,7 +76,7 @@ RSpec.describe 'Admin Invoices Show' do
 
       select 'In Progress', from: 'status'
       click_button('Update Invoice Status')
-
+      save_and_open_page
       expect(current_path).to eq(admin_invoice_path(@invoice_1.id))
       expect(page).to have_field('status', with: 'in progress')
 
@@ -97,6 +97,5 @@ RSpec.describe 'Admin Invoices Show' do
   # When I click this button
   # I am taken back to the admin invoice show page
   # And I see that my Invoice's status has now been updated
-
   end
 end
