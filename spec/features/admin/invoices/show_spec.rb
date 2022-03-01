@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Admin Invoices Show' do
-  describe 'user story #8' do
+  describe 'user story #8 and #6' do
     before :each do
       @customer_1 = Customer.create!(first_name: "Paul", last_name: "Atreides")
       @customer_2 = Customer.create!(first_name: "Baron", last_name: "Harkonnen")
@@ -52,6 +52,12 @@ RSpec.describe 'Admin Invoices Show' do
         expect(page).to have_content(@invoice_item_3.unit_price)
         expect(page).to have_content(@invoice_item_3.status)
       end
+    end
+  # As an admin
+  # When I visit an admin invoice show page
+  # Then I see the total revenue that will be generated from this invoice
+    it "when visiting /admin/invoices/:id see revenue generated from invoice" do
+      expect(page).to have_content("Total Revenue: $#{@invoice_1.revenue}")
     end
   end
 end
