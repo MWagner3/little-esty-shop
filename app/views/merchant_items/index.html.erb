@@ -1,6 +1,66 @@
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<center>
 <h1><%= @merchant.name.titleize %></h1>
-<% @merchant.items.each do |item| %>
-  <ul>
-    <li><%= link_to "#{item.name.titleize}", "/merchants/#{@merchant.id}/items/#{item.id}" %> </li>
- </ul>
-<% end %>
+<p> <%= link_to 'Create New Item', "/merchants/#{@merchant.id}/items/new" %> </p>
+
+<div class = "top_five_items" >
+  <% @merchant.top_five_items.each do |item| %>
+    <p> <b>Item:</b> <%= link_to "#{item.name.titleize}", "/merchants/#{@merchant.id}/items/#{item.id}" %>
+      <b>Total Sales:</b> <%= item.total_sales %>
+      <b>Top Sales Date:</b> <% if item.highest_revenue == nil %>
+                         <%= "No Sales Data" %>
+                       <% else %>
+                         <%= item.highest_revenue.creation_date_formatted %>
+                       <% end %>
+    </p>
+
+  <% end %>
+
+</div>
+
+
+
+<table style="width:100%">
+  <tr>
+    <td>Enabled Items</td>
+    <td>Disabled Items </td>
+  </tr>
+
+  <tr>
+    <td><% @merchant.items.enabled_items.each do |item| %>
+      <ul>
+        <li><%= link_to "#{item.name.titleize}", "/merchants/#{@merchant.id}/items/#{item.id}" %>
+
+          <div class="<%= "item_#{item.id}" %>">
+            <%= form_with model: [@merchant, item], local: true do |form| %>
+              <%= form.hidden_field :redirect_target, value: 'merchant_item_index' %>
+              <%= form.hidden_field :status, value: "disabled" %>
+              <%= form.submit "Disable #{item.name}"%>
+            <% end %>
+          </div></li>
+          <li> <%=item.status.titleize  %> </li>
+        </ul>
+    <% end %></td>
+
+    <td><% @merchant.items.disabled_items.each do |item| %>
+    <ul>
+      <li><%= link_to "#{item.name.titleize}", "/merchants/#{@merchant.id}/items/#{item.id}" %>
+
+        <div class="<%= "item_#{item.id}" %>">
+          <%= form_with model: [@merchant, item], local: true do |form| %>
+          <%= form.hidden_field :redirect_target, value: 'merchant_item_index' %>
+          <%= form.hidden_field :status, value: "enabled" %>
+          <%= form.submit "Enable #{item.name}"%>
+          <% end %>
+        </div></li>
+        <li> <%=item.status.titleize  %> </li>
+      </ul>
+      <% end %></td>
+  </tr>
+</table>
+</center>

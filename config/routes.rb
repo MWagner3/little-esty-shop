@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'static_pages#home'
-  get 'static_pages/home'
-  get 'static_pages/help'
-  get 'static_pages/about'
-
+  root to: 'static_pages#home'
 
   resources :merchants do
     resources :items, controller: 'merchant_items'
@@ -14,6 +10,8 @@ Rails.application.routes.draw do
   get '/merchants/:id/invoices', to: 'merchant_invoices#index'
 
   namespace :admin do
-    resources :merchants
+    resources :merchants, :invoices
   end
+
+  resources :admin, only: [:index]
 end
