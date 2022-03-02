@@ -76,7 +76,7 @@ RSpec.describe 'Admin Invoices Show' do
 
       select 'In Progress', from: 'status'
       click_button('Update Invoice Status')
-      save_and_open_page
+      # save_and_open_page
       expect(current_path).to eq(admin_invoice_path(@invoice_1.id))
       expect(page).to have_field('status', with: 'in progress')
 

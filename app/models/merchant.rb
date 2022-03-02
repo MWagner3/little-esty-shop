@@ -3,9 +3,9 @@ class Merchant < ApplicationRecord
 
   has_many :items
   has_many :invoice_items, through: :items
-  has_many :customers, through: :invoices
   has_many :invoices, through: :invoice_items
   has_many :transactions, through: :invoices
+  has_many :customers, through: :invoices
 
   validates :name, presence: true
 
@@ -27,13 +27,23 @@ class Merchant < ApplicationRecord
   end
 
   def top_five_customers
-    customers.joins(:invoices, :transactions)
-              .where('transactions.result = ?', 1)
-              .select('customers.*, count(*) AS transaction_count')
-              .group('customers.id')
-              .order('transaction_count DESC')
-              .limit(5)
+    customers.joins(invoices: :transactions)
+             .where(transactions:{result: 1})
+             .select("customers.*, COUNT(transactions.*) as transaction_count")
+             .group("customers.id")
+             .order(transaction_count: :desc)
+             .limit(5)
   end
+
+  # def top_five_customers
+  #   items.joins(invoices: :transactions)
+  #         .where('transactions.result = 0')
+  #         .select("items.*, sum(invoice_items.quantity * invoice_items.unit_price) as revenue")
+  #         .group(:id)
+  #         .order("revenue DESC")
+  #         .limit(5)
+  # end
+
 
 
   # commented out by LT --- this is not working - we may need more of the project written? I'll come back to this.
