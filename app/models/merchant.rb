@@ -42,6 +42,6 @@ class Merchant < ApplicationRecord
   end
 
   def best_selling_day
-
+    binding.pry
   end
 end

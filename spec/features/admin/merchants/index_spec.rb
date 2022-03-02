@@ -114,7 +114,7 @@ RSpec.describe 'Admin Merchants Index' do
       end
     end
 
-    xit 'top 5 merchants include best day info' do
+    it 'top 5 merchants include best day info' do
       visit "/admin/merchants"
 
       within "#top-merchant-#{@merchant_1.id}" do
