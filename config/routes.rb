@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   resources :merchants do
     resources :items, controller: 'merchant_items'
     resources :invoices, controller: 'merchant_invoices'
+    resources :dashboard, controller: 'merchant_dashboard'
   end
-
-  get '/merchants/:id/dashboard', to: 'merchants#dashboard'
 
   namespace :admin do
     resources :merchants, :invoices
