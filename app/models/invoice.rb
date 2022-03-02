@@ -15,4 +15,9 @@ class Invoice < ApplicationRecord
   def revenue
     invoice_items.sum('invoice_items.quantity * invoice_items.unit_price')
   end
+
+  def revenue_formatted
+    x = invoice_items.sum('invoice_items.quantity * invoice_items.unit_price')/100
+    "$#{x.round(2)}"
+  end
 end
