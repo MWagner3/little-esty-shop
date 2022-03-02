@@ -1,4 +1,4 @@
-# 
+#
 
 ## Rake Tasks
 
@@ -35,27 +35,27 @@ graph TD
 - Practice consuming a public API while utilizing POROs as a way to apply OOP principles to organize code
 
 ### contributors
- 
+
  - [Lisa The Lion Heart](https://github.com/lisataylor5472)
  - [Master Michael ](https://github.com/michaeljhicks)
  - [Samantha The Song Bird](https://github.com/samivari)
- - [Max The Wise](https://github.com/MWagner3)
+ - [Mad Max](https://github.com/MWagner3)
 
 ### Self Eval
 
 One February afternoon...
 Four Heros set out on a journey together, to battle a creature so rare, she is only found in the ***Land of Turing***, past the battleship grave yard, into a small village named *~*~*~_Mod 2 Backend_~*~*~*.
 
-Within a fortnight our heros, 
+Within a fortnight our heros,
 - Used ActiveRecord in a clear and effective way to read/write data by using the power of grouping, aggregating, and joining.
 - Demonstrated the principles of MVC to effectively organize code
-- Created 100% coverage for features and models. 
+- Created 100% coverage for features and models.
 - Used partials to dry up repeated view logic.
 - Created routes and actions that follow RESTful conventions.
 and
 - And the true meaning of friendship
 
-And after taking some sad paths and some happy paths; Lisa, Michael, Sam, and Max came out one step closer to *Promotion to Mod 3* 
+And after taking some sad paths and some happy paths; Lisa, Michael, Sam, and Max came out one step closer to *Promotion to Mod 3*
 The End.
 
 
@@ -71,4 +71,3 @@ This project is licensed under the TuringSchool License and your mom (Lisa if yo
 ## Acknowledgments
 
 *This was a lovely group to work with on such a heavy project <3
-
