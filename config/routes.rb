@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
   resources :merchants do
     resources :items, controller: 'merchant_items'
+    resources :invoices, controller: 'merchant_invoices'
   end
 
   get '/merchants/:id/dashboard', to: 'merchants#dashboard'
-  get '/merchants/:id/invoices', to: 'merchant_invoices#index'
 
   namespace :admin do
     resources :merchants, :invoices
