@@ -26,6 +26,16 @@ class Merchant < ApplicationRecord
          .limit(5)
   end
 
+  def top_five_customers
+    customers.joins(:invoices, :transactions)
+              .where('transactions.result = ?', 1)
+              .select('customers.*, count(*) AS transaction_count')
+              .group('customers.id')
+              .order('transaction_count DESC')
+              .limit(5)
+  end
+
+
   # commented out by LT --- this is not working - we may need more of the project written? I'll come back to this.
   # def self.top_five_merchants
   #   joins(invoices: :transactions)
