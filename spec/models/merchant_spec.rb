@@ -120,7 +120,7 @@ RSpec.describe Merchant do
     end
 
     it 'lists best_selling_day for merchant' do
-      expect(@merchant_1.best_selling_day).to eq("Tuesday, March 25, 2022")
+      expect(@merchant_1.best_selling_day).to eq("Friday, March 25, 2022")
     end
   end
 end
