@@ -87,10 +87,10 @@ RSpec.describe Merchant do
       @customer_2 = Customer.create!(first_name: "Baron", last_name: "Harkonnen")
       @customer_3 = Customer.create!(first_name: "Reverend", last_name: "Mother")
 
-      @invoice_1 = @customer_1.invoices.create!(status: 1, created_at: '2012-03-25 09:54:09')
-      @invoice_2 = @customer_2.invoices.create!(status: 1, created_at: '2012-03-25 09:54:09')
-      @invoice_3 = @customer_3.invoices.create!(status: 1, created_at: '2012-03-25 09:54:09')
-      @invoice_4 = @customer_3.invoices.create!(status: 1, created_at: '2012-03-25 09:54:09')
+      @invoice_1 = @customer_1.invoices.create!(status: 1, created_at: '2022-03-25 09:54:09')
+      @invoice_2 = @customer_2.invoices.create!(status: 1, created_at: '2022-03-25 09:54:09')
+      @invoice_3 = @customer_3.invoices.create!(status: 1, created_at: '2022-03-25 09:54:09')
+      @invoice_4 = @customer_3.invoices.create!(status: 1, created_at: '2022-03-25 09:54:09')
 
       @invoice_item_1 = InvoiceItem.create!(item_id: @item_2.id, invoice_id: @invoice_1.id, unit_price: 25, quantity: 6, status: 0)
       @invoice_item_2 = InvoiceItem.create!(item_id: @item_3.id, invoice_id: @invoice_1.id, unit_price: 25, quantity: 3, status: 0)
@@ -117,6 +117,10 @@ RSpec.describe Merchant do
 
     it 'lists total revenue for merchant' do
       expect(@merchant_1.total_revenue).to eq(375)
+    end
+
+    it 'lists best_selling_day for merchant' do
+      expect(@merchant_1.best_selling_day).to eq("Friday, March 25, 2022")
     end
   end
 end

@@ -125,6 +125,7 @@ RSpec.describe 'Merchant Items Index page' do
       invoice_item_11 = InvoiceItem.create!(item_id: item_6.id, invoice_id: invoice_11.id, status: 2, quantity: 1, unit_price: 5)
 
       visit "/merchants/#{merchant1.id}/items"
+
       within '.top_five_items' do
         expect(page).to have_link(item_1.name.titleize)
         expect(page).to have_link(item_2.name.titleize)
