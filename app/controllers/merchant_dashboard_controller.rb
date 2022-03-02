@@ -1,4 +1,4 @@
-class MerchantDashboardController < ApplicationController
+branclass MerchantDashboardController < ApplicationController
 
   # def index
   #   @merchant = Merchant.all(params[:merchant_id])
