@@ -44,7 +44,7 @@ RSpec.describe 'Admin Merchants Index' do
     end
   end
 
-  describe 'user story #11' do
+  describe 'user story #11 and #10' do
     before :each do
       @merchant_1 = Merchant.create!(name: "LT's Tee Shirts LLC", status: 1)
       @merchant_2 = Merchant.create!(name: 'Handmade in CO Co.', status: 1)
@@ -100,14 +100,29 @@ RSpec.describe 'Admin Merchants Index' do
 
       within "#top-merchant-#{@merchant_1.id}" do
         expect(page).to have_link("#{@merchant_1.name}", href: admin_merchant_path(@merchant_1.id))
+        expect(page).to have_content("#{@merchant_1.total_revenue}")
       end
 
       within "#top-merchant-#{@merchant_2.id}" do
         expect(page).to have_link("#{@merchant_2.name}", href: admin_merchant_path(@merchant_2.id))
+        expect(page).to have_content("#{@merchant_2.total_revenue}")
       end
 
       within "#top-merchant-#{@merchant_3.id}" do
         expect(page).to have_link("#{@merchant_3.name}", href: admin_merchant_path(@merchant_3.id))
+        expect(page).to have_content("#{@merchant_3.total_revenue}")
+      end
+    end
+
+    xit 'top 5 merchants include best day info' do
+      visit "/admin/merchants"
+
+      within "#top-merchant-#{@merchant_1.id}" do
+        expect(page).to have_content("Top selling date for #{@merchant_1.name} was #{@merchant_1.best_selling_day}")
+      end
+
+      within "#top-merchant-#{@merchant_2.id}" do
+        expect(page).to have_content("Top selling date for #{@merchant_2.name} was #{@merchant_2.best_selling_day}")
       end
     end
   end

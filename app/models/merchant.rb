@@ -34,4 +34,14 @@ class Merchant < ApplicationRecord
     .order(total_revenue: :desc)
     .limit(5)
   end
+
+  def total_revenue
+    invoice_items.joins(:transactions)
+                 .where(transactions: { result: 'success' })
+                 .sum('invoice_items.quantity * invoice_items.unit_price')
+  end
+
+  def best_selling_day
+
+  end
 end
