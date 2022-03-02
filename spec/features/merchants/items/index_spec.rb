@@ -110,31 +110,19 @@ RSpec.describe 'Merchant Items Index page' do
       invoice_10 = Invoice.create!(customer_id: customer1.id, status: 1)
       invoice_11 = Invoice.create!(customer_id: customer1.id, status: 1)
 
-      transaction_1 = Transaction.create!(invoice_id: invoice_6.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_2 = Transaction.create!(invoice_id: invoice_7.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_3 = Transaction.create!(invoice_id: invoice_8.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_4 = Transaction.create!(invoice_id: invoice_9.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_5 = Transaction.create!(invoice_id: invoice_10.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_6 = Transaction.create!(invoice_id: invoice_11.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
+      transaction_1 = Transaction.create!(invoice_id: invoice_6.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_2 = Transaction.create!(invoice_id: invoice_7.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_3 = Transaction.create!(invoice_id: invoice_8.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_4 = Transaction.create!(invoice_id: invoice_9.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_5 = Transaction.create!(invoice_id: invoice_10.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_6 = Transaction.create!(invoice_id: invoice_11.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
 
-      invoice_item_6 = InvoiceItem.create!(item_id: item_1.id, invoice_id: invoice_6.id, status: 2, quantity: 1,
-                                           unit_price: 50)
-      invoice_item_7 = InvoiceItem.create!(item_id: item_2.id, invoice_id: invoice_7.id, status: 2, quantity: 1,
-                                           unit_price: 45)
-      invoice_item_8 = InvoiceItem.create!(item_id: item_3.id, invoice_id: invoice_8.id, status: 2, quantity: 1,
-                                           unit_price: 40)
-      invoice_item_9 = InvoiceItem.create!(item_id: item_4.id, invoice_id: invoice_9.id, status: 2, quantity: 1,
-                                           unit_price: 35)
-      invoice_item_10 = InvoiceItem.create!(item_id: item_5.id, invoice_id: invoice_10.id, status: 2, quantity: 1,
-                                            unit_price: 30)
-      invoice_item_11 = InvoiceItem.create!(item_id: item_6.id, invoice_id: invoice_11.id, status: 2, quantity: 1,
-                                            unit_price: 5)
+      invoice_item_6 = InvoiceItem.create!(item_id: item_1.id, invoice_id: invoice_6.id, status: 2, quantity: 1, unit_price: 50)
+      invoice_item_7 = InvoiceItem.create!(item_id: item_2.id, invoice_id: invoice_7.id, status: 2, quantity: 1, unit_price: 45)
+      invoice_item_8 = InvoiceItem.create!(item_id: item_3.id, invoice_id: invoice_8.id, status: 2, quantity: 1, unit_price: 40)
+      invoice_item_9 = InvoiceItem.create!(item_id: item_4.id, invoice_id: invoice_9.id, status: 2, quantity: 1, unit_price: 35)
+      invoice_item_10 = InvoiceItem.create!(item_id: item_5.id, invoice_id: invoice_10.id, status: 2, quantity: 1, unit_price: 30)
+      invoice_item_11 = InvoiceItem.create!(item_id: item_6.id, invoice_id: invoice_11.id, status: 2, quantity: 1, unit_price: 5)
 
       visit "/merchants/#{merchant1.id}/items"
       within '.top_five_items' do
@@ -168,31 +156,19 @@ RSpec.describe 'Merchant Items Index page' do
       invoice_10 = Invoice.create!(customer_id: customer1.id, status: 1)
       invoice_11 = Invoice.create!(customer_id: customer1.id, status: 1)
 
-      transaction_1 = Transaction.create!(invoice_id: invoice_6.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_2 = Transaction.create!(invoice_id: invoice_7.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_3 = Transaction.create!(invoice_id: invoice_8.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_4 = Transaction.create!(invoice_id: invoice_9.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_5 = Transaction.create!(invoice_id: invoice_10.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_6 = Transaction.create!(invoice_id: invoice_11.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
+      transaction_1 = Transaction.create!(invoice_id: invoice_6.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_2 = Transaction.create!(invoice_id: invoice_7.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_3 = Transaction.create!(invoice_id: invoice_8.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_4 = Transaction.create!(invoice_id: invoice_9.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_5 = Transaction.create!(invoice_id: invoice_10.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_6 = Transaction.create!(invoice_id: invoice_11.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
 
-      invoice_item_6 = InvoiceItem.create!(item_id: item_1.id, invoice_id: invoice_6.id, status: 2, quantity: 1,
-                                           unit_price: 50)
-      invoice_item_7 = InvoiceItem.create!(item_id: item_2.id, invoice_id: invoice_7.id, status: 2, quantity: 1,
-                                           unit_price: 45)
-      invoice_item_8 = InvoiceItem.create!(item_id: item_3.id, invoice_id: invoice_8.id, status: 2, quantity: 1,
-                                           unit_price: 40)
-      invoice_item_9 = InvoiceItem.create!(item_id: item_4.id, invoice_id: invoice_9.id, status: 2, quantity: 1,
-                                           unit_price: 35)
-      invoice_item_10 = InvoiceItem.create!(item_id: item_5.id, invoice_id: invoice_10.id, status: 2, quantity: 1,
-                                            unit_price: 30)
-      invoice_item_11 = InvoiceItem.create!(item_id: item_6.id, invoice_id: invoice_11.id, status: 2, quantity: 1,
-                                            unit_price: 5)
+      invoice_item_6 = InvoiceItem.create!(item_id: item_1.id, invoice_id: invoice_6.id, status: 2, quantity: 1,unit_price: 50)
+      invoice_item_7 = InvoiceItem.create!(item_id: item_2.id, invoice_id: invoice_7.id, status: 2, quantity: 1,unit_price: 45)
+      invoice_item_8 = InvoiceItem.create!(item_id: item_3.id, invoice_id: invoice_8.id, status: 2, quantity: 1, unit_price: 40)
+      invoice_item_9 = InvoiceItem.create!(item_id: item_4.id, invoice_id: invoice_9.id, status: 2, quantity: 1, unit_price: 35)
+      invoice_item_10 = InvoiceItem.create!(item_id: item_5.id, invoice_id: invoice_10.id, status: 2, quantity: 1, unit_price: 30)
+      invoice_item_11 = InvoiceItem.create!(item_id: item_6.id, invoice_id: invoice_11.id, status: 2, quantity: 1, unit_price: 5)
 
       visit "/merchants/#{merchant1.id}/items"
       within '.top_five_items' do
@@ -218,31 +194,19 @@ RSpec.describe 'Merchant Items Index page' do
       invoice_10 = Invoice.create!(customer_id: customer1.id, status: 1)
       invoice_11 = Invoice.create!(customer_id: customer1.id, status: 1)
 
-      transaction_1 = Transaction.create!(invoice_id: invoice_6.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_2 = Transaction.create!(invoice_id: invoice_7.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_3 = Transaction.create!(invoice_id: invoice_8.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_4 = Transaction.create!(invoice_id: invoice_9.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_5 = Transaction.create!(invoice_id: invoice_10.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_6 = Transaction.create!(invoice_id: invoice_11.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
+      transaction_1 = Transaction.create!(invoice_id: invoice_6.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_2 = Transaction.create!(invoice_id: invoice_7.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_3 = Transaction.create!(invoice_id: invoice_8.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_4 = Transaction.create!(invoice_id: invoice_9.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_5 = Transaction.create!(invoice_id: invoice_10.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_6 = Transaction.create!(invoice_id: invoice_11.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
 
-      invoice_item_6 = InvoiceItem.create!(item_id: item_1.id, invoice_id: invoice_6.id, status: 2, quantity: 1,
-                                           unit_price: 50)
-      invoice_item_7 = InvoiceItem.create!(item_id: item_2.id, invoice_id: invoice_7.id, status: 2, quantity: 1,
-                                           unit_price: 45)
-      invoice_item_8 = InvoiceItem.create!(item_id: item_3.id, invoice_id: invoice_8.id, status: 2, quantity: 1,
-                                           unit_price: 40)
-      invoice_item_9 = InvoiceItem.create!(item_id: item_4.id, invoice_id: invoice_9.id, status: 2, quantity: 1,
-                                           unit_price: 35)
-      invoice_item_10 = InvoiceItem.create!(item_id: item_5.id, invoice_id: invoice_10.id, status: 2, quantity: 1,
-                                            unit_price: 30)
-      invoice_item_11 = InvoiceItem.create!(item_id: item_6.id, invoice_id: invoice_11.id, status: 2, quantity: 1,
-                                            unit_price: 5)
+      invoice_item_6 = InvoiceItem.create!(item_id: item_1.id, invoice_id: invoice_6.id, status: 2, quantity: 1, unit_price: 50)
+      invoice_item_7 = InvoiceItem.create!(item_id: item_2.id, invoice_id: invoice_7.id, status: 2, quantity: 1, unit_price: 45)
+      invoice_item_8 = InvoiceItem.create!(item_id: item_3.id, invoice_id: invoice_8.id, status: 2, quantity: 1, unit_price: 40)
+      invoice_item_9 = InvoiceItem.create!(item_id: item_4.id, invoice_id: invoice_9.id, status: 2, quantity: 1, unit_price: 35)
+      invoice_item_10 = InvoiceItem.create!(item_id: item_5.id, invoice_id: invoice_10.id, status: 2, quantity: 1, unit_price: 30)
+      invoice_item_11 = InvoiceItem.create!(item_id: item_6.id, invoice_id: invoice_11.id, status: 2, quantity: 1, unit_price: 5)
 
       visit "/merchants/#{merchant1.id}/items"
       within '.top_five_items' do
@@ -272,33 +236,20 @@ RSpec.describe 'Merchant Items Index page' do
       invoice_11 = Invoice.create!(customer_id: customer1.id, status: 1, created_at: '2012-03-25 09:54:09 UTC')
       invoice_12 = Invoice.create!(customer_id: customer1.id, status: 1, created_at: '2012-03-25 09:54:09 UTC')
 
-      transaction_1 = Transaction.create!(invoice_id: invoice_6.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_2 = Transaction.create!(invoice_id: invoice_7.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_3 = Transaction.create!(invoice_id: invoice_8.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_4 = Transaction.create!(invoice_id: invoice_9.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_5 = Transaction.create!(invoice_id: invoice_10.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
-      transaction_6 = Transaction.create!(invoice_id: invoice_11.id, result: 'success', credit_card_number: '123456789',
-                                          credit_card_expiration_date: '1/2/99')
+      transaction_1 = Transaction.create!(invoice_id: invoice_6.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_2 = Transaction.create!(invoice_id: invoice_7.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_3 = Transaction.create!(invoice_id: invoice_8.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_4 = Transaction.create!(invoice_id: invoice_9.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_5 = Transaction.create!(invoice_id: invoice_10.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
+      transaction_6 = Transaction.create!(invoice_id: invoice_11.id, result: 'success', credit_card_number: '123456789', credit_card_expiration_date: '1/2/99')
 
-      invoice_item_6 = InvoiceItem.create!(item_id: item_1.id, invoice_id: invoice_6.id, status: 2, quantity: 1,
-                                           unit_price: 50)
-      invoice_item_7 = InvoiceItem.create!(item_id: item_2.id, invoice_id: invoice_7.id, status: 2, quantity: 1,
-                                           unit_price: 45)
-      invoice_item_8 = InvoiceItem.create!(item_id: item_3.id, invoice_id: invoice_8.id, status: 2, quantity: 1,
-                                           unit_price: 40)
-      invoice_item_9 = InvoiceItem.create!(item_id: item_4.id, invoice_id: invoice_9.id, status: 2, quantity: 1,
-                                           unit_price: 35)
-      invoice_item_10 = InvoiceItem.create!(item_id: item_5.id, invoice_id: invoice_10.id, status: 2, quantity: 1,
-                                            unit_price: 30)
-      invoice_item_11 = InvoiceItem.create!(item_id: item_6.id, invoice_id: invoice_11.id, status: 2, quantity: 1,
-                                            unit_price: 5)
-      invoice_item_12 = InvoiceItem.create!(item_id: item_1.id, invoice_id: invoice_6.id, status: 2, quantity: 1,
-                                            unit_price: 50)
+      invoice_item_6 = InvoiceItem.create!(item_id: item_1.id, invoice_id: invoice_6.id, status: 2, quantity: 1, unit_price: 50)
+      invoice_item_7 = InvoiceItem.create!(item_id: item_2.id, invoice_id: invoice_7.id, status: 2, quantity: 1, unit_price: 45)
+      invoice_item_8 = InvoiceItem.create!(item_id: item_3.id, invoice_id: invoice_8.id, status: 2, quantity: 1, unit_price: 40)
+      invoice_item_9 = InvoiceItem.create!(item_id: item_4.id, invoice_id: invoice_9.id, status: 2, quantity: 1, unit_price: 35)
+      invoice_item_10 = InvoiceItem.create!(item_id: item_5.id, invoice_id: invoice_10.id, status: 2, quantity: 1, unit_price: 30)
+      invoice_item_11 = InvoiceItem.create!(item_id: item_6.id, invoice_id: invoice_11.id, status: 2, quantity: 1, unit_price: 5)
+      invoice_item_12 = InvoiceItem.create!(item_id: item_1.id, invoice_id: invoice_6.id, status: 2, quantity: 1, unit_price: 50)
 
       visit "/merchants/#{merchant1.id}/items"
       within '.top_five_items' do

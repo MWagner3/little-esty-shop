@@ -19,3 +19,17 @@
     </div>
   <% end %>
 </div>
+
+<h3> Top 5 Merchants </h3>
+<ol>
+  <% @merchants.top_five_merchants.each do |merchant| %>
+    <div id="top-merchant-<%=merchant.id%>">
+      <li>
+        <%= link_to merchant.name, "/admin/merchants/#{merchant.id}"%> ||
+        $<%= "#{merchant.total_revenue}" %> in sales <br>
+        <br>
+        <%="Top selling date for #{merchant.name} was #{merchant.best_selling_day}"%>
+      </li>
+    </div>
+  <% end %>
+</ol>
