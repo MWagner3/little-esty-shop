@@ -26,39 +26,27 @@ class Merchant < ApplicationRecord
          .limit(5)
   end
 
-  def top_five_customers
-    customers.joins(invoices: :transactions)
-             .where(transactions:{result: 1})
-             .select("customers.*, COUNT(transactions.*) as transaction_count")
-             .group("customers.id")
-             .order(transaction_count: :desc)
-             .limit(5)
+  def self.top_five_merchants
+    joins(invoices: :transactions)
+    .where(transactions: { result: 'success' })
+    .select('merchants.*, sum(invoice_items.unit_price * invoice_items.quantity) as total_revenue')
+    .group(:id)
+    .order(total_revenue: :desc)
+    .limit(5)
   end
 
-  def ship_ready_items
-    invoice_items.join(:invoice)
-                  .where(status: 'completed')
-                  .order('invoices.created_at')
+  def total_revenue
+    invoice_items.joins(:transactions)
+                 .where(transactions: { result: 'success' })
+                 .sum('invoice_items.quantity * invoice_items.unit_price')
   end
 
-  # def top_five_customers
-  #   items.joins(invoices: :transactions)
-  #         .where('transactions.result = 0')
-  #         .select("items.*, sum(invoice_items.quantity * invoice_items.unit_price) as revenue")
-  #         .group(:id)
-  #         .order("revenue DESC")
-  #         .limit(5)
-  # end
-
-
-
-  # commented out by LT --- this is not working - we may need more of the project written? I'll come back to this.
-  # def self.top_five_merchants
-  #   joins(invoices: :transactions)
-  #   .where('transactions.result = ?', 'success') --- try it this way? (transactions: { result: 'success' }) --SI
-  #   .select('merchants.*, sum(invoice_items.unit_price * invoice_items.quantity) as total_revenue')
-  #   .group(:id)
-  #   .order(total_revenue: :desc)
-  #   .limit(5)
-  # end
+  def best_selling_day
+    invoices.joins(:transactions)
+            .where(transactions: {result: 'success'})
+            .group(:id)
+            .select("invoices.created_at, sum(invoice_items.quantity * invoice_items.unit_price) AS revenue")
+            .order(revenue: :desc)
+            .first.creation_date_formatted
+  end
 end

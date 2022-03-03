@@ -40,4 +40,9 @@ RSpec.describe 'Merchant Invoices show page' do
       expect(page).to_not have_content(@invoice_item_2.item.name)
     end
   end
+
+  it "Shows total revenue that will be generated from all items on the invoice" do
+
+    expect(page).to have_content("Total Revenue: $30")
+  end
 end
