@@ -35,6 +35,12 @@ class Merchant < ApplicationRecord
              .limit(5)
   end
 
+  def ship_ready_items
+    invoice_items.join(:invoice)
+                  .where(status: 'completed')
+                  .order('invoices.created_at')
+  end
+
   # def top_five_customers
   #   items.joins(invoices: :transactions)
   #         .where('transactions.result = 0')
