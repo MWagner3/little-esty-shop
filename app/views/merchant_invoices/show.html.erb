@@ -12,7 +12,12 @@
     <p>Quantity: <%= invoice_item.quantity %></p>
     <p>Price: <%= invoice_item.unit_price.to_f/100 %></p>
     <p>Status: <%= invoice_item.status %></p>
+    <%= form_with model: invoice_item, local: true do |f| %>
+      <%= f.select :status, ["packaged", "pending", "shipped"], selected: invoice_item.status %>
+      <%= f.submit "Update Item Status" %>
+    <% end %>
     <% end %>
   </div>
 <br>
+
 <h2> Total Revenue: <%= @invoice.revenue_formatted %> </h2>
