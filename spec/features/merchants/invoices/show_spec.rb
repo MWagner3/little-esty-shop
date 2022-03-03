@@ -46,12 +46,12 @@ RSpec.describe 'Merchant Invoices show page' do
     expect(page).to have_content("Total Revenue: $30")
   end
 
-  xit "I can update the invoice item's status" do
+  it "I can update the invoice item's status" do
       within "#invoice_item-#{@invoice_item_1.id}" do
-        select "pending", from: "Status"
+        select "pending", from: "invoice_item[status]"
         click_button "Update Item Status"
         expect(page).to have_content("pending")
-        select "packaged", from: "Status"
+        select "packaged", from: "invoice_item[status]"
         click_button "Update Item Status"
         expect(page).to have_content("packaged")
       end
