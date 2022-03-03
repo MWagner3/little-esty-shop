@@ -78,7 +78,7 @@ RSpec.describe 'Merchant Items Show page' do
       visit "/merchants/#{@merchant_1.id}/dashboard"
     end
 
-    it "shows ordered item names yet to be shipped + invoice id links tethered to each item" do
+    xit "shows ordered item names yet to be shipped + invoice id links tethered to each item" do
       visit "/merchants/#{@merchant_1.id}/dashboard"
 
       within ".items-ready-to-ship" do
